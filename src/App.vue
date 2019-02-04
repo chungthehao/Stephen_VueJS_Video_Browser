@@ -1,7 +1,7 @@
 <template>
     <div>
         <SearchBar @termChange="onTermChange"></SearchBar>
-        <VideoList></VideoList>
+        <VideoList :videos="videos"></VideoList>
     </div>
 </template>
 
@@ -18,6 +18,11 @@ export default {
         SearchBar, // ES6, vì key - value giống nhau
         VideoList
     },
+    data() {
+        return {
+            videos: [] // sẽ là 1 mảng các object, mỗi object đại diện cho 1 video
+        };
+    },
     methods: {
         onTermChange(newSearchTerm) { // đây chính là callback func (event handler)
             console.log('Ở App: '+newSearchTerm);
@@ -31,7 +36,9 @@ export default {
                         q: newSearchTerm // q: short for 'query'
                     }
                 })
-                .then(response => console.log(response));
+                .then(response => {
+                    this.videos = response.data.items;
+                });
         }
     }
 }

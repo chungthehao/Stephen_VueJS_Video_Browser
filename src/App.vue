@@ -25,8 +25,6 @@ export default {
     },
     methods: {
         onTermChange(newSearchTerm) { // đây chính là callback func (event handler)
-            console.log('Ở App: '+newSearchTerm);
-
             axios
                 .get('https://www.googleapis.com/youtube/v3/search', {
                     params: {

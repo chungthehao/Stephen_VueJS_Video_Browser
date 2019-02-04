@@ -7,8 +7,9 @@
 <script>
 export default {
     name: 'VideoListItem',
+    // Chỉ cần dạng mảng --> props: ['video'] cũng đc.
     props: {
-        video: Object
+        video: Object // Prop Validation
     }
 }
 </script>

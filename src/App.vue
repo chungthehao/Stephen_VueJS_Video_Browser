@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="container">
         <SearchBar @termChange="onTermChange"></SearchBar>
         <VideoList :videos="videos"></VideoList>
     </div>
@@ -9,7 +9,7 @@
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
-const API_KEY = 'AIzaSyCvt5Zj-LH380jAflpjGTQnHylxAYGM1rU';
+const API_KEY = 'YOUR API KEY';
 
 export default {
     name: 'App', // để sau này dễ debug

@@ -1,9 +1,13 @@
 <template>
     <ul>
+        <!-- 'etag' is a property provided by Youtube, it is a unique identifier -->
+        <!-- This key property (v-bind:key="video.etag") is used whenever our list is updated, it enhances the performance of rerendering our list of items -->
         <VideoListItem  
-            v-for="video in videos" 
+            v-for="video in videos"
+            :key="video.etag" 
             :video="video"
-        ></VideoListItem>
+        >
+        </VideoListItem>
     </ul>
 </template>
 

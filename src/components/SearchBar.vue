@@ -15,6 +15,17 @@ export default {
 }
 </script>
 
-<style>
+
+<style scoped>
+    /* 'scoped' để CSS trong này ko có tác dụng bên ngoài component này. */
+
+    input {
+        width: 75%
+    }
+
+    div {
+        text-align: center;
+        margin: 20px;
+    }
 
 </style>

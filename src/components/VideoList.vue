@@ -1,5 +1,5 @@
 <template>
-    <ul class="list-group">
+    <ul class="list-group col-md-4">
         <!-- 'etag' is a property provided by Youtube, it is a unique identifier -->
         <!-- This key property (v-bind:key="video.etag") is used whenever our list is updated, it enhances the performance of rerendering our list of items -->
         <VideoListItem  

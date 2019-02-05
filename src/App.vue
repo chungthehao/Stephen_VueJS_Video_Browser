@@ -1,11 +1,14 @@
 <template>
     <div class="container">
         <SearchBar @termChange="onTermChange"></SearchBar>
-        <VideoList 
-            :videos="videos"
-            @videoSelect="onVideoSelect"
-        >
-        </VideoList>
+        <div class="row">
+            <VideoDetail :video="selectedVideo"></VideoDetail>
+            <VideoList 
+                :videos="videos"
+                @videoSelect="onVideoSelect"
+            >
+            </VideoList>
+        </div>
     </div>
 </template>
 
@@ -13,6 +16,8 @@
 import axios from 'axios';
 import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
+import VideoDetail from './components/VideoDetail';
+
 const API_KEY = 'YOUR API KEY';
 
 export default {
@@ -20,11 +25,13 @@ export default {
     components: {
         //SearchBar: SearchBar // Cách cũ
         SearchBar, // ES6, vì key - value giống nhau
-        VideoList
+        VideoList,
+        VideoDetail
     },
     data() {
         return {
-            videos: [] // sẽ là 1 mảng các object, mỗi object đại diện cho 1 video
+            videos: [], // sẽ là 1 mảng các object, mỗi object đại diện cho 1 video
+            selectedVideo: null
         };
     },
     methods: {
@@ -43,8 +50,8 @@ export default {
                 });
         },
 
-        onVideoSelect(video) {
-            console.log(video);
+        onVideoSelect(video) { // Event handler của custom event 'videoSelect'
+            this.selectedVideo = video; // Một khi update 'selectedVideo' data property, App component sẽ re-render, tận dụng cơ hội này, mình sẽ truyền obj này xuống VideoDetail component qua props
         }
     }
 }
